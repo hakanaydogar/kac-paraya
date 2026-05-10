@@ -4,56 +4,245 @@ import { useState } from "react";
 
 const questions = [
   {
-    text: "500 dolara tanga giyip Galata Köprüsü’nde koşar mısın?",
-    category: "Rezillik Testi",
-    courage: 85,
-    cringe: 95,
-    gav: 5,
-  },
-  {
-    text: "Eski flörtünün düğününe gidip çeyrek takar mısın?",
-    category: "İlişki Sınırı",
-    courage: 55,
-    cringe: 70,
-    gav: 80,
-  },
-  {
-    text: "Kız arkadaşın Mervelerde ders çalışabilir dese izin verir misin?",
-    category: "Gavatlık Ligi",
-    courage: 20,
-    cringe: 30,
-    gav: 90,
-  },
-  {
-    text: "Kalabalık bir kafede ayağa kalkıp 30 saniye şarkı söyler misin?",
-    category: "Cesaret Testi",
+    text: "500 dolara kalabalık bir meydanda pijamayla koşar mısın?",
+    category: "rezillik",
     courage: 75,
     cringe: 80,
     gav: 0,
   },
   {
-    text: "1.000 dolara saçını pembeye boyatır mısın?",
-    category: "Kaç Paraya?",
+    text: "1.000 dolara saçını arkadaşlarının seçeceği renge boyatır mısın?",
+    category: "cesaret",
+    courage: 70,
+    cringe: 65,
+    gav: 0,
+  },
+  {
+    text: "300 dolara kafede ayağa kalkıp 20 saniye şarkı söyler misin?",
+    category: "rezillik",
+    courage: 70,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "750 dolara Instagram profil fotoğrafını 1 hafta boyunca en kötü fotoğrafın yapar mısın?",
+    category: "sosyal_medya",
+    courage: 55,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "500 dolara eski flörtünün düğününe gidip çeyrek takar mısın?",
+    category: "iliski",
+    courage: 60,
+    cringe: 75,
+    gav: 80,
+  },
+  {
+    text: "1.000 dolara eski sevgilinin story’sine yanlışlıkla beğenmiş gibi yorum atar mısın?",
+    category: "iliski",
+    courage: 65,
+    cringe: 90,
+    gav: 45,
+  },
+  {
+    text: "2.000 dolara bir gün boyunca dışarıda bornozla gezer misin?",
+    category: "rezillik",
+    courage: 85,
+    cringe: 95,
+    gav: 0,
+  },
+  {
+    text: "500 dolara arkadaş grubuna telefonundaki son aramayı ekran görüntüsü olarak atar mısın?",
+    category: "sosyal_medya",
+    courage: 65,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "1.500 dolara sevgilinin eski flörtüyle aynı masada oturup normal davranır mısın?",
+    category: "gavatlik",
+    courage: 45,
+    cringe: 55,
+    gav: 85,
+  },
+  {
+    text: "5.000 dolara 1 ay boyunca tuşlu telefon kullanır mısın?",
+    category: "para",
+    courage: 45,
+    cringe: 30,
+    gav: 0,
+  },
+  {
+    text: "750 dolara eski sevgilinin annesine bayram mesajı atar mısın?",
+    category: "iliski",
+    courage: 60,
+    cringe: 80,
+    gav: 65,
+  },
+  {
+    text: "2.500 dolara düğünde piste çıkıp tek başına halay başı olur musun?",
+    category: "rezillik",
+    courage: 80,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "1.000 dolara telefonundaki son 5 fotoğrafı arkadaş grubuna atar mısın?",
+    category: "sosyal_medya",
+    courage: 70,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "2.000 dolara sevgilin eski sevgilisiyle aynı ortamda oyun oynasa kıskanmaz mısın?",
+    category: "gavatlik",
+    courage: 45,
+    cringe: 60,
+    gav: 90,
+  },
+  {
+    text: "300 dolara kafede sipariş verirken garsona rap yapar gibi konuşur musun?",
+    category: "rezillik",
+    courage: 70,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "1.500 dolara eski flörtünün düğününde fotoğrafçıya poz verir misin?",
+    category: "iliski",
+    courage: 75,
+    cringe: 95,
+    gav: 70,
+  },
+  {
+    text: "750 dolara arkadaşının senin adına attığı story’yi 24 saat silmeden tutar mısın?",
+    category: "sosyal_medya",
+    courage: 70,
+    cringe: 85,
+    gav: 0,
+  },
+  {
+    text: "2.000 dolara sevgilin eski flörtünün olduğu doğum gününe gitmek istese tamam der misin?",
+    category: "gavatlik",
+    courage: 35,
+    cringe: 45,
+    gav: 95,
+  },
+  {
+    text: "500 dolara kalabalık bir yerde kendine alkış başlatır mısın?",
+    category: "rezillik",
+    courage: 85,
+    cringe: 95,
+    gav: 0,
+  },
+  {
+    text: "3.000 dolara eski sevgilinin düğününde halay çekip video paylaşır mısın?",
+    category: "iliski",
+    courage: 90,
+    cringe: 100,
+    gav: 75,
+  },
+  {
+    text: "2.000 dolara bir hafta boyunca sadece arkadaşlarının seçtiği kıyafetleri giyer misin?",
+    category: "cesaret",
+    courage: 65,
+    cringe: 75,
+    gav: 0,
+  },
+  {
+    text: "1.000 dolara sevgilin eski flörtünün olduğu grup tatiline katılsa kabul eder misin?",
+    category: "gavatlik",
+    courage: 35,
+    cringe: 45,
+    gav: 100,
+  },
+  {
+    text: "5.000 dolara +18 bir iddiada pasif rolü kabul eder misin?",
+    category: "plus18",
+    courage: 90,
+    cringe: 95,
+    gav: 60,
+  },
+  {
+    text: "2.000 dolara arkadaş grubunda en son kiminle flörtleştiğini açıklar mısın?",
+    category: "plus18",
+    courage: 65,
+    cringe: 75,
+    gav: 20,
+  },
+  {
+    text: "3.000 dolara sevgiline tüm DM geçmişini 5 dakika gösterir misin?",
+    category: "plus18",
+    courage: 80,
+    cringe: 90,
+    gav: 30,
+  },
+  {
+    text: "1.500 dolara eski flörtüne ‘seni rüyamda gördüm’ diye mesaj atar mısın?",
+    category: "plus18",
+    courage: 70,
+    cringe: 85,
+    gav: 50,
+  },
+  {
+    text: "5.000 dolara bir hafta boyunca arkadaşlarının seçtiği flört tavsiyelerine uyar mısın?",
+    category: "plus18",
+    courage: 60,
+    cringe: 70,
+    gav: 40,
+  },
+  {
+    text: "10.000 dolara en yakın arkadaşının seçtiği biriyle kör randevuya çıkar mısın?",
+    category: "plus18",
     courage: 65,
     cringe: 60,
+    gav: 20,
+  },
+  {
+    text: "2.500 dolara story’ye ‘artık aşka inanıyorum’ yazıp siyah ekran atar mısın?",
+    category: "sosyal_medya",
+    courage: 45,
+    cringe: 75,
     gav: 0,
+  },
+  {
+    text: "1.000 dolara arkadaşlarının önünde eski sevgiline yanlışlıkla arama yapmış gibi yapar mısın?",
+    category: "iliski",
+    courage: 70,
+    cringe: 90,
+    gav: 55,
   },
 ];
 
 export default function Home() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answer, setAnswer] = useState<"yes" | "no" | null>(null);
-  const [price, setPrice] = useState("");
-  const [showResult, setShowResult] = useState(false);
+const [currentQuestion, setCurrentQuestion] = useState(0);
+const [usedQuestions, setUsedQuestions] = useState<number[]>([0]);
+const [answer, setAnswer] = useState<"yes" | "no" | null>(null);
+const [price, setPrice] = useState("");
+const [showResult, setShowResult] = useState(false);
 
   const question = questions[currentQuestion];
 
-  function nextQuestion() {
-    setCurrentQuestion((prev) => (prev + 1) % questions.length);
-    setAnswer(null);
-    setPrice("");
-    setShowResult(false);
+function nextQuestion() {
+  let availableQuestions = questions
+    .map((_, index) => index)
+    .filter((index) => !usedQuestions.includes(index));
+
+  if (availableQuestions.length === 0) {
+    availableQuestions = questions.map((_, index) => index);
+    setUsedQuestions([]);
   }
+
+  const randomIndex =
+    availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+
+  setCurrentQuestion(randomIndex);
+  setUsedQuestions((prev) => [...prev, randomIndex]);
+  setAnswer(null);
+  setPrice("");
+  setShowResult(false);
+}
 
   function getProfileName() {
     if (answer === "no") return "Prensip sahibi";
