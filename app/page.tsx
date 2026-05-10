@@ -283,25 +283,29 @@ function nextQuestion() {
 
           {!answer && (
             <div className="grid grid-cols-2 gap-4">
-              <button
-                onClick={() => setAnswer("yes")}
-                className="bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-2xl transition"
-              >
-                Evet
-              </button>
-              <button
-                onClick={() => {
-                  setAnswer("no");
-                  setShowResult(true);
-                }}
-                className="bg-red-500 hover:bg-red-400 text-black font-bold py-4 rounded-2xl transition"
-              >
-                Hayır
-              </button>
+<button
+  onClick={() => {
+    setAnswer("yes");
+    setPrice("500");
+    setShowResult(true);
+  }}
+  className="bg-green-500 hover:bg-green-400 text-black font-bold py-4 rounded-2xl transition"
+>
+  Evet
+</button>
+
+<button
+  onClick={() => {
+    setAnswer("no");
+  }}
+  className="bg-red-500 hover:bg-red-400 text-black font-bold py-4 rounded-2xl transition"
+>
+  Hayır
+</button>
             </div>
           )}
 
-          {answer === "yes" && !showResult && (
+          {answer === "no" && !showResult && (
             <div className="space-y-4">
               <p className="text-gray-300">Kaç dolara yaparsın?</p>
 
@@ -338,8 +342,8 @@ function nextQuestion() {
               <div className="bg-purple-500/20 border border-purple-400/20 rounded-2xl p-4">
                 <p className="text-sm text-purple-100">
                   {answer === "yes"
-                    ? `Sen bunu ${price || "?"} dolara yaparım dedin. Bu sonuç story’ye atılabilir 😂`
-                    : "Hayır dedin. Bazı şeyler parayla olmuyormuş 😂"}
+  ? "Verilen parayı kabul ettin. Herkesin bir fiyatı varmış 😂"
+  : `500 dolar yetmedi ama sen bunu ${price || "?"} dolara yaparım dedin 😂`}
                 </p>
               </div>
 
